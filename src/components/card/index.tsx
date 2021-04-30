@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FontAwesome } from '@expo/vector-icons'; 
 import {
     CardBody,
@@ -13,51 +13,109 @@ import {
     Title, 
     PostContainer, 
     Post,
-    IconContainer
+    IconContainer,
+    Container
 } from './styled';
 import DataCard from './pressed';
+import api from '../../services/api';
+import { GlobalContext} from '../../context';
+
+type item ={
+    id:number;
+    title:string;
+    body:string;
+    userId:number;
+}
+
+type userItem ={
+    id:number;
+    name:string;
+    username:string;
+    email:string;
+    address: {
+    street:string;
+    suite:string;
+    city:string;
+    zipcode:string;
+    geo: {
+        lat:string;
+        lng:string;
+      }
+    },
+    phone:string;
+    website:string;
+    company: {
+      name:string;
+      catchPhrase:string;
+      bs:string;
+    }
+}
 
 
 
-export default function Card(){
-    const [isPressed, setIspressed] = useState(true);
+export default function Card({data}:{data:item}){
+    const [isPressed, setIspressed] = useState(false);
+    const [cardData, setCardData] = useState<userItem>();
+    const{getName} =  useContext(GlobalContext);
+
+
+    async function getData(id:number) {
+        await api.get(`users/${id}`).then((response)=>{
+            setCardData(response.data);
+            
+        })
+    }
+
+    const nameArray = getName(data.userId)?.split(' ');
+    const initials = (nameArray[0]?.substring(0,1))+(nameArray[1]?.substring(0,1));
+    const name = getName(data.userId)
+
+    console.log();
+
+
+
+
+
+    useEffect(()=>{
+        if (isPressed){
+            getData(data.userId);
+        }
+        
+    },[isPressed]);
 
     return(
-        <CardContainer>
-            <CardHeader>
-                <User style={isPressed && {backgroundColor:'#ffffff'}} 
-                onPress={()=>{setIspressed(!isPressed); console.log(isPressed);}
-                }>
-                    <InitContainer style={isPressed && {borderWidth:1}}>
-                        <Initials style={isPressed && {color:'#000000'}}>CV</Initials>
-                    </InitContainer>
+        <Container>
+            <CardContainer>
+                <CardHeader>
+                    <User style={isPressed && {backgroundColor:'#ffffff'}} 
+                    onPress={()=>{setIspressed(!isPressed);}
+                    }>
+                        <InitContainer style={isPressed && {borderWidth:1}}>
+                            <Initials style={isPressed && {color:'#000000'}}>{initials}</Initials>
+                        </InitContainer>
 
-                    <NameContainer>
-                        <Name style={isPressed && {color:'#000000'}}>César Vargas</Name>
-                    </NameContainer>
-                </User>
-                <IconContainer>
-                    <FontAwesome name="trash-o" size={24} color="black" />
-                </IconContainer>
-
-            </CardHeader>
-            
-                {isPressed? (
-                    <DataCard/>
-                ):(
-                    <CardBody>
-                        <TitleContainer>
-                            <Title>sunt aut facere repellat provident occaecati excepturi optio reprehenderit.</Title>
-                        </TitleContainer>
-                        <PostContainer>
-                            <Post>{'quia et suscipit \n suscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto.'}</Post>
-                        </PostContainer>
-                    </CardBody>
-                )}
-
-
-            
-
-        </CardContainer>
+                        <NameContainer>
+                            <Name style={isPressed && {color:'#000000'}}>{name}</Name>
+                        </NameContainer>
+                    </User>
+                    <IconContainer>
+                        <FontAwesome name="trash-o" size={24} color="black" />
+                    </IconContainer>
+                </CardHeader>
+                
+                    {isPressed? (
+                        <DataCard data={cardData}/>
+                    ):(
+                        <CardBody>
+                            <TitleContainer>
+                                <Title>{data.title}</Title>
+                            </TitleContainer>
+                            <PostContainer>
+                                <Post>{data.body}</Post>
+                            </PostContainer>
+                        </CardBody>
+                    )}
+            </CardContainer>
+        </Container>
     )
 }

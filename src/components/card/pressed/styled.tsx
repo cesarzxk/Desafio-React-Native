@@ -17,7 +17,7 @@ flex-direction:row;
 
 export const Text = styled.Text`
 top:15px;
-left:10px;
+left:5px;
 
 font-weight:bold;
 text-align:left;
@@ -63,12 +63,13 @@ border-radius:25px;
 
 export const AdressGeoText = styled.Text`
 flex:1;
+font-weight:bold;
 `;
 
 export const AdressGeoContainer = styled.View`
 position:absolute;
-width:120px;
-right:20px;
+width:45%;
+right:0px;
 bottom:-10px;
 
 flex-direction:row;
@@ -93,12 +94,15 @@ text-align:center;
 
 `;
 
-export const Information = styled.Text``;
+export const Information = styled.Text`
+font-weight:normal;
+font-size:12;
+`;
 
 
 export const CompanyContainer = styled.View`
 position:relative;
-height:70px;
+height:80px;
 width:100%;
 top:85px;
 
@@ -116,8 +120,9 @@ flex-direction:row;
 
 export const ComanyText = styled.Text`
 top:15px;
-left:10px;
+left:5px;
 flex:1;
+height:30px
 
 font-weight:bold;
 text-align:left;

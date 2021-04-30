@@ -22,7 +22,7 @@ background-color:#f4f4f4;
 height: 100%;
 `;
 
-export const Body = styled.ScrollView`
+export const Body = styled.SafeAreaView`
 height: 86%;
 width:100%;
 `;
@@ -36,7 +36,7 @@ justify-content:center;
 export const ButtonText = styled.Text`
 color:#ffffff;
 font-size:40px;
-font-family: Inter;
+
 font-weight:500;
 text-align:center;
 `;
