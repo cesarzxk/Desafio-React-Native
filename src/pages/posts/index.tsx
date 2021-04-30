@@ -1,7 +1,7 @@
 import React from 'react';
 import {View} from 'react-native';
 import { Header,Footer, Container, Body, Button, ButtonText} from './styled';
-import Card from '../../components/card';
+import CardList from '../../components/cardList';
 
 
 
@@ -13,7 +13,7 @@ export default function posts(){
         <Container>
             <Header/>
             <Body>
-                <Card/>
+                <CardList/>
             </Body>
             <Footer>
                 <Button onPress={()=>{}}>

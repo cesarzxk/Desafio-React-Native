@@ -19,24 +19,48 @@ import{
     
 } from './styled';
 
+type userItem ={
+    id:number;
+    name:string;
+    username:string;
+    email:string;
+    address: {
+    street:string;
+    suite:string;
+    city:string;
+    zipcode:string;
+    geo: {
+        lat:string;
+        lng:string;
+      }
+    },
+    phone:string;
+    website:string;
+    company: {
+      name:string;
+      catchPhrase:string;
+      bs:string;
+    }
+}
 
-export default function DataCard (){
+
+export default function DataCard ({data}:{data:userItem}){
     return(
         <CardPressedBody>
             <PersonalDataContainer>
                 <UserDataContainer>
                     <TextContainer>
                         <Text>Usename:
-                            <Information></Information>
+                            <Information>{data?.username}</Information>
                         </Text>
                         <Text>Email:
-                            <Information></Information>
+                            <Information>{data?.email}</Information>
                         </Text>
                         <Text>Phone:
-                            <Information></Information>
+                            <Information>{data?.phone}</Information>
                         </Text>
                         <Text>Website:
-                            <Information></Information>
+                            <Information>{data?.website}</Information>
                         </Text>
                     </TextContainer>
                 </UserDataContainer>
@@ -44,18 +68,18 @@ export default function DataCard (){
                 <AdressContainer>
                     <TextContainer>
                         <Text>Street:
-                            <Information></Information>
+                            <Information>{data?.address.street}</Information>
                         </Text>
                         <Text>City:
-                            <Information></Information>
+                            <Information>{data?.address.city}</Information>
                         </Text>
 
                         <Text>Suit:
-                            <Information></Information>
+                            <Information>{data?.address.suite}</Information>
                         </Text>
 
                         <Text>Zipcode:
-                            <Information></Information>
+                            <Information>{data?.address.zipcode}</Information>
                         </Text>
                     </TextContainer>
                 </AdressContainer>
@@ -66,13 +90,13 @@ export default function DataCard (){
 
                     <AdressGeoContainer>
                         <AdressGeoText>
-                            Lat:
-                            <Information></Information>
+                            lat:
+                            <Information>{data?.address.geo.lat}</Information>
                         </AdressGeoText>
 
                         <AdressGeoText>
-                            Ign:
-                            <Information></Information>
+                            lng:
+                            <Information>{data?.address.geo.lng}</Information>
                         </AdressGeoText>
                     </AdressGeoContainer>
 
@@ -87,16 +111,16 @@ export default function DataCard (){
 
                 <CompanyTextContainer>
                     <ComanyText>Name:
-                        <Information></Information>
+                        <Information>{data?.company.name}</Information>
                     </ComanyText>
                     <ComanyText>BS:
-                        <Information></Information>
+                        <Information>{data?.company.bs}</Information>
                     </ComanyText>
                 </CompanyTextContainer>
 
                 <TextContainer>
                     <Text>CatchPhrase:
-                        <Information>cccccccccccccccccccccccccccccccc</Information>
+                        <Information>{data?.company.catchPhrase}</Information>
                     </Text>
                 </TextContainer>
 

@@ -1,5 +1,9 @@
 import styled from 'styled-components/native';
 
+export const Container = styled.View`
+padding-top:10px;
+padding-bottom:10px;
+`;
 
 export const CardHeader = styled.View`
 position:relative;
@@ -21,12 +25,15 @@ text-align:center;
 color:#F0BDBD;
 `;
 
-export const NameContainer = styled.View``;
+export const NameContainer = styled.View`
+width:140;
+`;
 
 export const Name = styled.Text`
 left:10px;
 font-size:15px;
 color:#FFFFFF;
+width:135;
 `;
 
 export const User = styled.TouchableOpacity`
@@ -39,7 +46,7 @@ top:5px
 left:2%;
 
 height:40px;
-width:180px;
+
 
 border-radius:100px;
 
@@ -54,7 +61,8 @@ left:2%;
 right:2%;
 
 
-height: 300px;
+
+height: 320px;
 background: #E4E4E4;
 
 
@@ -121,6 +129,5 @@ padding-bottom:2.5px;
 
 
 border-radius:50px;
-
 `;
 

@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "abc",
-    "slug": "abc",
+    "name": "Desafio-React-Native-Dev",
+    "slug": "React-Native-Dev",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
