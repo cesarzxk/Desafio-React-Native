@@ -1,14 +1,28 @@
 import React from 'react';
-import { View } from 'react-native';
-import { Header } from './styled';
+import {View} from 'react-native';
+import { Header,Footer, Container, Body, Button, ButtonText} from './styled';
+import Card from '../../components/card';
+
+
 
 
 
 export default function posts(){
+    
     return(
-        <View>
+        <Container>
             <Header/>
-        </View>
+            <Body>
+                <Card/>
+            </Body>
+            <Footer>
+                <Button onPress={()=>{}}>
+                    <View>
+                        <ButtonText>New Post</ButtonText>
+                    </View>
+                </Button>
+            </Footer>
+        </Container>
     )
 
 
