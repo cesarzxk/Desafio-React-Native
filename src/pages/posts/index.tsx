@@ -1,22 +1,28 @@
-import React from 'react';
+import React, { useContext} from 'react';
 import {View} from 'react-native';
 import { Header,Footer, Container, Body, Button, ButtonText} from './styled';
 import CardList from '../../components/cardList';
+import Modal from '../../components/modal';
+import { GlobalContext } from '../../context';
 
 
 
 
 
 export default function posts(){
+    const {setIsVisible} = useContext(GlobalContext);
+
     
     return(
         <Container>
-            <Header/>
+            <Header>
+                <Modal/>
+            </Header>
             <Body>
                 <CardList/>
             </Body>
             <Footer>
-                <Button onPress={()=>{}}>
+                <Button onPress={()=>{setIsVisible(true)}}>
                     <View>
                         <ButtonText>New Post</ButtonText>
                     </View>

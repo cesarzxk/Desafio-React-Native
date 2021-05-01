@@ -13,7 +13,9 @@ export const InitContainer = styled.View`
 left:2px;
 border-radius:100px;
 padding:5px;
+
 background-color:#FFFFFF;
+
 height:35px;
 width:35px;
 
@@ -26,14 +28,16 @@ color:#F0BDBD;
 `;
 
 export const NameContainer = styled.View`
-width:140;
+width:140px;
 `;
 
 export const Name = styled.Text`
 left:10px;
-font-size:15px;
+
 color:#FFFFFF;
-width:135;
+
+font-size:15px;
+width:135px;
 `;
 
 export const User = styled.TouchableOpacity`
@@ -56,10 +60,9 @@ background:#ED5858;
 
 export const CardContainer = styled.View`
 
-width: 94%;
+width:96%;
 left:2%;
 right:2%;
-
 
 
 height: 320px;
@@ -82,6 +85,8 @@ top:50px;
 width:96%
 height:45px;
 left:2%;
+
+justify-content:center;
 
 border-bottom-left-radius:25px;
 border-top-right-radius:25px;

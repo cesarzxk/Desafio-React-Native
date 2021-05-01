@@ -1,7 +1,6 @@
 import styled from 'styled-components/native';
 
 export const CardPressedBody = styled.View`
-justify-content:center;
 width:98%
 left:1%;
 right:1%;
@@ -9,23 +8,23 @@ right:1%;
 
 export const PersonalDataContainer = styled.View`
 top:60px;
-height:50%;
+height:55%;
 
 flex-direction:row;
-
 `;
 
 export const Text = styled.Text`
-top:15px;
+top:10px;
+padding-top:5px;
 left:5px;
-
+font-size:13px;
 font-weight:bold;
 text-align:left;
 `;
 
 export const TextContainer = styled.View`
 padding-bottom:5px;
-flex:1;
+padding-right:5px;
 `;
 
 export const UserDataContainer = styled.View`
@@ -33,7 +32,7 @@ flex:1;
 
 background:#f4f4f4;
 
-border: 1px solid #000000;
+border: 0.5px solid #000000;
 border-radius:25px;
 
 `;
@@ -46,29 +45,35 @@ position:absolute;
 
 background:#f4f4f4;
 
-border:1px solid #000000;
+border:0.5px solid #000000;
 border-radius:10px;
+`;
+
+export const Gap = styled.View`
+width:2px
 `;
 
 export const AdressContainer = styled.Text`
 flex:1;
+padding-top:7px;
 
 position:relative;
 
 background:#f4f4f4;
 
-border: 1px solid #000000;
+border: 0.5px solid #000000;
 border-radius:25px;
 `;
 
 export const AdressGeoText = styled.Text`
 flex:1;
 font-weight:bold;
+font-size:11.5px;
 `;
 
 export const AdressGeoContainer = styled.View`
 position:absolute;
-width:45%;
+width:46%;
 right:0px;
 bottom:-10px;
 
@@ -80,7 +85,7 @@ padding-right:5px;
 
 background:#f4f4f4;
 
-border: 1px solid #000000;
+border: 0.5px solid #000000;
 border-radius:25px;
 `;
 
@@ -96,7 +101,7 @@ text-align:center;
 
 export const Information = styled.Text`
 font-weight:normal;
-font-size:12;
+font-size:12px;
 `;
 
 
@@ -110,7 +115,7 @@ top:85px;
 
 background:#f4f4f4;
 
-border: 1px solid #000000;
+border: 0.5px solid #000000;
 border-radius:25px;
 `;
 
@@ -123,6 +128,7 @@ top:15px;
 left:5px;
 flex:1;
 height:30px
+font-size:12px;
 
 font-weight:bold;
 text-align:left;
@@ -136,6 +142,6 @@ left:10%;
 
 background:#f4f4f4;
 
-border:1px solid #000000;
+border:0.5px solid #000000;
 border-radius:10px
 `;

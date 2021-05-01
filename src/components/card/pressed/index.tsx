@@ -15,7 +15,8 @@ import{
     UserDataContainer,
     CardPressedBody,
     CompanyTextContainer,
-    ComanyText
+    ComanyText,
+    Gap
     
 } from './styled';
 
@@ -44,7 +45,7 @@ type userItem ={
 }
 
 
-export default function DataCard ({data}:{data:userItem}){
+export default function DataCard ({data}:{data?:userItem}){
     return(
         <CardPressedBody>
             <PersonalDataContainer>
@@ -64,6 +65,8 @@ export default function DataCard ({data}:{data:userItem}){
                         </Text>
                     </TextContainer>
                 </UserDataContainer>
+
+                <Gap/>
 
                 <AdressContainer>
                     <TextContainer>
@@ -103,6 +106,7 @@ export default function DataCard ({data}:{data:userItem}){
 
 
             </PersonalDataContainer>
+
             <CompanyContainer>
 
                 <CompanyTitleContainer>

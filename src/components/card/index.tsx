@@ -56,7 +56,7 @@ type userItem ={
 export default function Card({data}:{data:item}){
     const [isPressed, setIspressed] = useState(false);
     const [cardData, setCardData] = useState<userItem>();
-    const{getName} =  useContext(GlobalContext);
+    const {getName, deleteItemById} =  useContext(GlobalContext);
 
 
     async function getData(id:number) {
@@ -66,14 +66,16 @@ export default function Card({data}:{data:item}){
         })
     }
 
+
     const nameArray = getName(data.userId)?.split(' ');
-    const initials = (nameArray[0]?.substring(0,1))+(nameArray[1]?.substring(0,1));
+    
+    let initials = undefined;
+
+    if (nameArray!=undefined){
+        initials =  (nameArray[0].substring(0,1))+(nameArray[1].substring(0,1));
+    }
+    
     const name = getName(data.userId)
-
-    console.log();
-
-
-
 
 
     useEffect(()=>{
@@ -98,7 +100,7 @@ export default function Card({data}:{data:item}){
                             <Name style={isPressed && {color:'#000000'}}>{name}</Name>
                         </NameContainer>
                     </User>
-                    <IconContainer>
+                    <IconContainer onPress={()=>{deleteItemById(data.id)}}>
                         <FontAwesome name="trash-o" size={24} color="black" />
                     </IconContainer>
                 </CardHeader>
