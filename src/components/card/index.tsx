@@ -99,6 +99,8 @@ export default function Card({data}:{data:item}){
                         <NameContainer>
                             <Name style={isPressed && {color:'#000000'}}>{name}</Name>
                         </NameContainer>
+
+                        
                     </User>
                     <IconContainer onPress={()=>{deleteItemById(data.id)}}>
                         <FontAwesome name="trash-o" size={24} color="black" />

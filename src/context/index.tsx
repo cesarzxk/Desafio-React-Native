@@ -1,10 +1,11 @@
 import React, { createContext, ReactNode, useEffect, useState,  } from 'react';
-import { Alert } from 'react-native';
+import { Alert, StatusBar } from 'react-native';
 import api from '../services/api';
 
 type contextDate ={
     data:item[];
     isVisible:boolean;
+    users:user[];
     addPost:(userName:string, title:string, Post:string)=>void;
     setIsVisible:(status:boolean)=>void;
     getName:(id:number)=>string|undefined;
@@ -113,6 +114,7 @@ export function GlobalProviders({children}:globalProvidersProps){
         <GlobalContext.Provider value={{
             data,
             isVisible,
+            users,
             getName,
             changeData,
             deleteItemById,
@@ -120,6 +122,7 @@ export function GlobalProviders({children}:globalProvidersProps){
             addPost
             
         }}>
+            <StatusBar hidden={true}/>
             {children}
         </GlobalContext.Provider>
     )
