@@ -1,12 +1,11 @@
 import styled from 'styled-components/native';
 
-
 export const Header = styled.View`
 width: 100%;
 height: 5%;
 background-color:#F83838;
-border-bottom-left-radius:50px;
-border-bottom-right-radius:0px;
+border-bottom-left-radius:0px;
+border-bottom-right-radius:50px;
 `;
 
 export const Footer = styled.View`
@@ -23,21 +22,6 @@ height: 100%;
 `;
 
 export const Body = styled.SafeAreaView`
-height: 88%;
+height: 86%;
 width:100%;
 `;
-
-export const Button = styled.TouchableOpacity`
-height: 100%;
-width: 100%;
-justify-content:center;
-`;
-
-export const ButtonText = styled.Text`
-color:#ffffff;
-font-size:40px;
-
-font-weight:bold;
-text-align:center;
-`;
-

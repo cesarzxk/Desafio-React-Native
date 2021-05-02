@@ -6,13 +6,8 @@ import Modal from '../../components/modal';
 import { GlobalContext } from '../../context';
 
 
-
-
-
-export default function posts(){
+export default function Posts(){
     const {setIsVisible} = useContext(GlobalContext);
-
-    
     return(
         <Container>
             <Header>
