@@ -1,5 +1,5 @@
 # Desafio React-Native Developer
-Post management system.
+Post's management system developed in 5 days.
 
 ## 📷 Screenshots
 
