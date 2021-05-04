@@ -70,16 +70,20 @@ export function GlobalProviders({children}:globalProvidersProps){
     }
 
     function deleteItemById(id:number){
-        Alert.alert('Attention', 'Do you really want to remove? \n(is irreversible)',[
+        Alert.alert('Attention', 'Do you really want to remove?',[
            {
-               onPress: ()=>{
+                onPress: ()=>{
                 const filteredData = data.filter(item => item.id !== id);
                 setData(filteredData);
                 removeData(id)
                },
-               text:'yes'
+               text:'OK'
                
-           },{text:'no'}]
+           },{
+            onPress: () => console.log("Cancel Pressed"),
+            style: "cancel",
+            text: "Cancel"
+        }]
         )
     }
 

@@ -1,6 +1,4 @@
 import React from 'react';
-import Clipboard from 'expo-clipboard';
-import { Feather } from '@expo/vector-icons'; 
 
 
 import {
@@ -28,15 +26,14 @@ export default function UserCard({data}:{data:item}){
     return(
         <Container>
             <CardBody>
+
                 <InitContainer>
                     <Initials>{initials}</Initials>
                 </InitContainer>
+
                 <NameContainer>
                     <Name>{data.name}</Name>
                 </NameContainer>
-                <IconContainer onPress={()=>{Clipboard.setString(data.name);}}>
-                    <Feather name="copy" size={24} color="black" />
-                </IconContainer>
                 
             </CardBody>
         </Container>

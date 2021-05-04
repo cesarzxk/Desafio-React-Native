@@ -68,6 +68,11 @@ align-items:center;
 border-radius:15px;
 `;
 
+export const UserBoxSelect = styled.Picker`
+width:100%;
+height:30px;
+`;
+
 
 export const ContainerTitleTextBox = styled.View`
 width:96%;

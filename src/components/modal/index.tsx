@@ -2,7 +2,6 @@ import React,{useContext, useState} from 'react';
 import { FontAwesome } from '@expo/vector-icons'; 
 import { GlobalContext } from '../../context';
 
-
 import {
     ContainerModal,
     Fade,
@@ -16,14 +15,14 @@ import {
     ContainerUserTextBox,
     Text,
     TitleTextBox,
-    UserTextBox,
+    UserBoxSelect,
     PostTextBox,
     Header
 } from './styled';
 
 
 export default function Modal(){
-    const {isVisible,setIsVisible, addPost} = useContext(GlobalContext);
+    const {isVisible, users,setIsVisible, addPost} = useContext(GlobalContext);
     const [title, setTitle] = useState<string>('');
     const [body, setBody] = useState<string>('');
     const [userName, setUserName] = useState<string>('');
@@ -36,6 +35,8 @@ export default function Modal(){
     }
 
 
+
+
     return(
         <ContainerModal transparent={true} visible={isVisible} animationType="slide">
                     <Fade>
@@ -45,7 +46,17 @@ export default function Modal(){
                                 <FontAwesome name="trash-o" size={24} color="black" /></ContainerTrashIcon>
                             <ContainerUserTextBox>
                                 <Text>User:</Text>
-                                <UserTextBox value={userName} onChangeText={text =>setUserName(text)}/>
+                                <UserBoxSelect
+                                    selectedValue={userName}
+                                    onValueChange={(valor) => {setUserName(String(valor))}}>
+
+                                    <UserBoxSelect.Item key={0} label='-' value=''/>
+                                    
+                                    {users.map(user => {
+                                        return(<UserBoxSelect.Item key={user.id} label={user.name} value={user.name}/>)
+                                    })}
+                                
+                                </UserBoxSelect>
                             </ContainerUserTextBox>
 
                             <ContainerTitleTextBox>
