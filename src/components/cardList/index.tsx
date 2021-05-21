@@ -5,6 +5,7 @@ import {GlobalContext} from '../../context';
 import{Flatlist} from './styled';
 
 import api from '../../services/api';
+import { RefreshControl } from 'react-native';
 
 type item ={
     id:number;
@@ -16,6 +17,7 @@ type item ={
 export default function CardList(){
     const{data,changeData} = useContext(GlobalContext);
     const[limite, setLimite] = useState<number>(12)
+    const[isRefreshing, setIsRefreshing]=useState<boolean>(false)
    
 
     async function getData() {
@@ -38,6 +40,13 @@ export default function CardList(){
         getData()
     },[limite])
 
+    async function onRefresh(){
+        setIsRefreshing(true);
+        await getData()
+        setIsRefreshing(false);
+    }
+
+
 
 
     const renderItem = ({item}:{item:item})=>(<Card data={item}/>)
@@ -45,6 +54,7 @@ export default function CardList(){
 
     return(
         <Flatlist 
+        refreshControl={<RefreshControl onRefresh={()=>onRefresh()} refreshing={isRefreshing}/>}
         renderItem={renderItem}
         keyExtractor={(item) => item.id.toString()}
         data={data}

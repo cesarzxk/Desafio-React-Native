@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import {RefreshControl} from 'react-native';
 import{Flatlist} from './styled';
 import {GlobalContext} from '../../context';
 import UserCard from '../userCard';
