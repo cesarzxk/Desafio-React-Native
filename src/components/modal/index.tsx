@@ -53,6 +53,7 @@ export default function Modal(){
                                     <UserBoxSelect.Item key={0} label='-' value=''/>
                                     
                                     {users.map(user => {
+                                        
                                         return(<UserBoxSelect.Item key={user.id} label={user.name} value={user.name}/>)
                                     })}
                                 
